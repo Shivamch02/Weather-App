@@ -6,13 +6,11 @@ import { useState } from "react";
 const SearchBox = ({ updateInfo }) => {
   let [city, setCity] = useState("");
   let [error, setError] = useState(false);
-  // const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-  // const API_KEY = "add7a6ea8d180c845554f3d737796d5f";
 
   let getWeatherInfo = async () => {
     try {
       let data = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=add7a6ea8d180c845554f3d737796d5f&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&${API_KEY}&units=metric`
       );
       let json = await data.json();
       let result = {
